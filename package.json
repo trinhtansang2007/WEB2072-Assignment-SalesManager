@@ -1,0 +1,11 @@
+{
+  "name": "web2072-assignment-sales-manager",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "seed": "npm --prefix server run seed",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "install:all": "npm --prefix server install && npm --prefix client install"
+  }
+}

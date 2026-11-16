@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Báo cáo Assignment WEB2072 - Sales Manager</title>
+    <style>
+      body {
+        font-family: "Times New Roman", serif;
+        max-width: 900px;
+        margin: 32px auto;
+        line-height: 1.5;
+        color: #111;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #0f172a;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 12px 0;
+      }
+      th,
+      td {
+        border: 1px solid #999;
+        padding: 8px;
+        text-align: left;
+      }
+      code {
+        background: #f3f4f6;
+        padding: 2px 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BÁO CÁO ASSIGNMENT</h1>
+    <p><strong>Môn:</strong> Lập trình Front End Framework (WEB2072)</p>
+    <p><strong>Đề tài:</strong> Ứng dụng quản lý bán hàng (Sales Manager)</p>
+    <p><strong>Công nghệ:</strong> Vue.js 3, Express.js, MongoDB, JWT</p>
+
+    <h2>1. Giới thiệu</h2>
+    <p>
+      Ứng dụng giúp doanh nghiệp quản lý sản phẩm, đơn hàng, khách hàng và theo dõi doanh thu.
+      Hệ thống có đăng nhập, phân quyền admin/nhân viên bán hàng.
+    </p>
+
+    <h2>2. Kiến trúc tổng thể</h2>
+    <ul>
+      <li><strong>Frontend:</strong> Vue 3 + Vite + Vue Router + Pinia + Bootstrap 5 + Chart.js</li>
+      <li><strong>Backend:</strong> Node.js + Express REST API</li>
+      <li><strong>Database:</strong> MongoDB (Mongoose ODM)</li>
+      <li><strong>Auth:</strong> JWT Bearer Token, role = admin | staff</li>
+    </ul>
+
+    <h2>3. Phân tích chức năng</h2>
+    <table>
+      <tr>
+        <th>Module</th>
+        <th>Mô tả</th>
+      </tr>
+      <tr>
+        <td>Auth</td>
+        <td>Đăng nhập, lưu token, phân quyền</td>
+      </tr>
+      <tr>
+        <td>Products</td>
+        <td>CRUD sản phẩm, lọc, phân trang</td>
+      </tr>
+      <tr>
+        <td>Orders</td>
+        <td>Tạo đơn, cập nhật trạng thái, theo dõi</td>
+      </tr>
+      <tr>
+        <td>Customers</td>
+        <td>CRUD khách hàng</td>
+      </tr>
+      <tr>
+        <td>Stats</td>
+        <td>Doanh thu, đơn gần đây, sản phẩm bán chạy</td>
+      </tr>
+    </table>
+
+    <h2>4. Thiết kế dữ liệu</h2>
+    <ul>
+      <li><code>users</code>: name, email, password, role</li>
+      <li><code>products</code>: name, description, price, category, imageUrl, status, stock</li>
+      <li><code>customers</code>: name, email, phone, address, note</li>
+      <li><code>orders</code>: code, customer, items[], total, status, createdBy</li>
+    </ul>
+
+    <h2>5. REST API chính</h2>
+    <ul>
+      <li><code>POST /api/auth/login</code></li>
+      <li><code>GET/POST/PUT/DELETE /api/products</code></li>
+      <li><code>GET/POST/PUT/DELETE /api/customers</code></li>
+      <li><code>GET/POST/PUT/DELETE /api/orders</code></li>
+      <li><code>GET /api/stats/overview</code></li>
+    </ul>
+
+    <h2>6. Cách cài đặt và chạy</h2>
+    <ol>
+      <li>Cài Node.js và MongoDB</li>
+      <li>
+        Backend:
+        <code>cd server && npm install && npm run seed && npm run dev</code>
+      </li>
+      <li>Frontend: <code>cd client && npm install && npm run dev</code></li>
+      <li>Đăng nhập bằng tài khoản seed trong README</li>
+    </ol>
+
+    <h2>7. Kết luận</h2>
+    <p>
+      Ứng dụng đáp ứng Y1 (các module Vue), Y2 (REST API + phân quyền) và Y3 (báo cáo thiết kế).
+      Có thể mở rộng thêm thanh toán, xuất Excel, upload ảnh thực tế.
+    </p>
+  </body>
+</html>
